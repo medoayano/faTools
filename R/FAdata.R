@@ -7,15 +7,21 @@
 
 FAdata <- function(dt, convert=TRUE){
 
-  id <<- dt[,1]
-  species <<- dt[,2]
-  species_num <<- as.numeric(as.factor(species))
+  id <- dt[,1]
+  species <- dt[,2]
+  species_num <- as.numeric(as.factor(species))
 
-  conv.data <<- dt[,3:ncol(dt)]
+  conv.data <- dt[,3:ncol(dt)]
 
   if(convert == TRUE){
-    conv.data <<- sqrt(conv.data)
+    conv.data <- sqrt(conv.data)
   } else {
     ###
   }
+  return(list(
+    id <- id,
+    species <- species,
+    species_num <- species_num,
+    conv.data <- conv.data
+  ))
 }
