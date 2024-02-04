@@ -19,9 +19,9 @@ FAdata <- function(dt, convert=TRUE){
     ###
   }
   return(list(
-    id <- id,
-    species <- species,
-    species_num <- species_num,
-    conv.data <- conv.data
+    id = id,
+    species = species,
+    species_num = species_num,
+    conv.data = conv.data
   ))
 }

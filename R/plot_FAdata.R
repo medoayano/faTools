@@ -6,7 +6,7 @@
 #' @importFrom vegan envfit
 #' @importFrom vegan ordiplot
 #'
-#' @param conv.data data frame made by "FAdata" function
+#' @param data data frame made by "FAdata" function
 #' @param method Please select dissimilarity index, such as "bray", "euclidean", "chao", "morisita" ...
 #' @param print_stress Please put "TRUE" here if you see results of stress value
 #' @param print_fit Please put "TRUE" here if you see table of vector analysis
@@ -14,9 +14,13 @@
 #' @param plot_legend Please put "TRUE" here if you print legend on nMDS plot
 #' @export
 
-plot_FAdata <- function(conv.data, method,
+plot_FAdata <- function(data, method,
                         print_stress = FALSE, print_fit = FALSE,
                         plot_vector = FALSE, plot_legend = FALSE){
+
+  conv.data <- data$conv.data
+  species <- data$species
+  species_num <- data$species_num
 
   dist <- vegdist(conv.data,method)
   mds <- metaMDS(dist,k=2)
